@@ -37,6 +37,8 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
+  variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link" | null | undefined
+  size?: "default" | "sm" | "lg" | "icon" | null | undefined
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -54,3 +56,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = "Button"
 
 export { Button, buttonVariants }
+export type { VariantProps }
