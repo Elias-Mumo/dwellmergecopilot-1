@@ -1,5 +1,7 @@
 # DwellMerge - Modern Rental Listing Platform
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Elias-Mumo/dwellmergecopilot-1)
+
 DwellMerge is a comprehensive rental listing platform that connects tenants with verified landlords. Built with modern web technologies, it provides a secure and user-friendly experience for property rental transactions.
 
 ## 🚀 Features
