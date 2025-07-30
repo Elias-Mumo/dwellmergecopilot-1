@@ -1,5 +1,6 @@
 "use client"
 
+// Fixed: Updated to use direct Supabase client import instead of deprecated auth-helpers-react
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
