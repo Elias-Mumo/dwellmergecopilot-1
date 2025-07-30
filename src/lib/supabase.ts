@@ -1,15 +1,16 @@
 import { createClient } from '@supabase/supabase-js'
 import { Database } from '@/types/database'
+import { getEnvVar } from './env'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+const supabaseUrl = getEnvVar('NEXT_PUBLIC_SUPABASE_URL')
+const supabaseAnonKey = getEnvVar('NEXT_PUBLIC_SUPABASE_ANON_KEY')
 
 export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey)
 
 // Admin client with service role key (server-side only)
 export const supabaseAdmin = createClient<Database>(
   supabaseUrl,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!,
+  getEnvVar('SUPABASE_SERVICE_ROLE_KEY'),
   {
     auth: {
       autoRefreshToken: false,
