@@ -203,11 +203,11 @@ ORDER BY date DESC;
 CREATE VIEW public.popular_locations AS
 SELECT 
   CONCAT(county, ', ', sub_county, ', ', estate) as location,
-  COUNT(*) as search_count
-FROM search_analytics 
-WHERE location IS NOT NULL
+  COUNT(*) as property_count
+FROM properties 
+WHERE status = 'approved'
 GROUP BY county, sub_county, estate
-ORDER BY search_count DESC
+ORDER BY property_count DESC
 LIMIT 10;
 
 CREATE VIEW public.popular_properties AS
