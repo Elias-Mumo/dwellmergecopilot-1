@@ -3,6 +3,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { Providers } from "@/components/providers"
 import { Toaster } from "@/components/ui/toaster"
+import { env } from "@/lib/env"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   authors: [{ name: "DwellMerge Team" }],
   creator: "DwellMerge",
   publisher: "DwellMerge",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"),
+  metadataBase: new URL(env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"),
   openGraph: {
     type: "website",
     locale: "en_US",

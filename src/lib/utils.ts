@@ -1,6 +1,11 @@
-import { type ClassValue, clsx } from "clsx"
-import { twMerge } from "tailwind-merge"
+// Utility functions for class name management
+// Using require to work around TypeScript module resolution issues
 
-export function cn(...inputs: ClassValue[]) {
+const clsx = require('clsx')
+const { twMerge } = require('tailwind-merge')
+
+export type ClassValue = string | number | boolean | undefined | null | { [key: string]: any } | ClassValue[]
+
+export function cn(...inputs: ClassValue[]): string {
   return twMerge(clsx(inputs))
 }
