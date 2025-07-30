@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
@@ -14,12 +13,12 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Home, Plus, User, LogOut, Shield } from "lucide-react"
 import { useRouter } from "next/navigation"
+import { useSupabase } from "@/components/providers"
+import { supabase } from "@/lib/supabase"
 
 export function Header() {
-  const session = useSession()
-  const supabase = useSupabaseClient()
+  const { user } = useSupabase()
   const router = useRouter()
-  const user = session?.user
 
   const handleSignOut = async () => {
     await supabase.auth.signOut()
