@@ -37,7 +37,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-semibold mb-4">1. Acceptance of Terms</h2>
               <p>
-                By accessing and using DwellMerge ("the Platform"), you accept and agree to be bound by the terms and provision of this agreement. 
+                By accessing and using DwellMerge (&quot;the Platform&quot;), you accept and agree to be bound by the terms and provision of this agreement.
                 If you do not agree to abide by the above, please do not use this service.
               </p>
             </section>
@@ -66,7 +66,7 @@ export default function TermsPage() {
               <p>DwellMerge bears <strong>NO LIABILITY</strong> for:</p>
               <ul className="list-disc pl-6 space-y-2">
                 <li><strong>Scams</strong> - Users are responsible for verifying all information independently</li>
-                <li><strong>Financial loss</strong> - Any monetary transactions are at the user's own risk</li>
+                <li><strong>Financial loss</strong> - Any monetary transactions are at the user&apos;s own risk</li>
                 <li><strong>False listings</strong> - While we strive to maintain quality, we cannot guarantee accuracy of all listings</li>
                 <li><strong>Property conditions</strong> - Users must inspect properties personally before making decisions</li>
                 <li><strong>Disputes between users</strong> - DwellMerge is not party to agreements between landlords and tenants</li>
@@ -107,7 +107,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-semibold mb-4">7. No Warranties</h2>
               <p>
-                DwellMerge provides the platform "AS IS" without any warranties, expressed or implied. We do not warrant that:
+                DwellMerge provides the platform &quot;AS IS&quot; without any warranties, expressed or implied. We do not warrant that:
               </p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>The service will meet your specific requirements</li>
@@ -165,7 +165,7 @@ export default function TermsPage() {
               <p className="text-yellow-700">
                 By using DwellMerge, you acknowledge that you understand and accept all risks associated with online property searching. 
                 Always verify information independently and never send money without physically inspecting the property and 
-                confirming the identity of the person you're dealing with.
+                confirming the identity of the person you&apos;re dealing with.
               </p>
             </div>
 

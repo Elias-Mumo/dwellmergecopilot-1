@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { supabase } from '@/lib/supabase'
 
 interface TestResult {
@@ -13,11 +13,11 @@ export default function DatabaseTestPage() {
   const [results, setResults] = useState<TestResult[]>([])
   const [isRunning, setIsRunning] = useState(false)
 
-  const addResult = (test: string, status: 'success' | 'error', message: string) => {
+  const addResult = useCallback((test: string, status: 'success' | 'error', message: string) => {
     setResults(prev => [...prev, { test, status, message }])
-  }
+  }, [])
 
-  const runTests = async () => {
+  const runTests = useCallback(async () => {
     setIsRunning(true)
     setResults([])
 
@@ -96,11 +96,11 @@ export default function DatabaseTestPage() {
     }
 
     setIsRunning(false)
-  }
+  }, [addResult])
 
   useEffect(() => {
     runTests()
-  }, [])
+  }, [runTests])
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
