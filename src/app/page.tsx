@@ -14,6 +14,12 @@ export default function HomePage() {
         {/* Temporary test links */}
         <div className="flex justify-center space-x-4 flex-wrap gap-4">
           <Link 
+            href="/quick-test" 
+            className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition-colors font-semibold"
+          >
+            ⚡ Quick Test
+          </Link>
+          <Link 
             href="/setup" 
             className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-2 rounded-lg transition-colors font-semibold"
           >
