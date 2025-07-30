@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { supabase } from '@/lib/supabase'
 
 interface TableCheck {
@@ -10,27 +10,27 @@ interface TableCheck {
   error?: string
 }
 
+const expectedTables = [
+  'profiles',
+  'properties',
+  'favorites',
+  'property_analytics',
+  'search_analytics'
+]
+
+const expectedViews = [
+  'daily_user_stats',
+  'daily_property_stats',
+  'popular_locations',
+  'popular_properties'
+]
+
 export default function DatabaseSetupPage() {
   const [tableChecks, setTableChecks] = useState<TableCheck[]>([])
   const [isChecking, setIsChecking] = useState(false)
   const [setupInstructions, setSetupInstructions] = useState(false)
 
-  const expectedTables = [
-    'profiles',
-    'properties', 
-    'favorites',
-    'property_analytics',
-    'search_analytics'
-  ]
-
-  const expectedViews = [
-    'daily_user_stats',
-    'daily_property_stats', 
-    'popular_locations',
-    'popular_properties'
-  ]
-
-  const checkTables = async () => {
+  const checkTables = useCallback(async () => {
     setIsChecking(true)
     setTableChecks([])
     
@@ -96,11 +96,11 @@ export default function DatabaseSetupPage() {
 
     setTableChecks(results)
     setIsChecking(false)
-  }
+  }, [])
 
   useEffect(() => {
     checkTables()
-  }, [])
+  }, [checkTables])
 
   const allTablesExist = tableChecks.length > 0 && tableChecks.every(check => check.exists)
 
@@ -187,7 +187,7 @@ export default function DatabaseSetupPage() {
               </div>
               <div>
                 <h4 className="font-medium mb-2">4. Test the Setup</h4>
-                <p>Click "Check Tables Again" to verify all tables were created successfully.</p>
+                <p>Click &quot;Check Tables Again&quot; to verify all tables were created successfully.</p>
               </div>
             </div>
           </div>

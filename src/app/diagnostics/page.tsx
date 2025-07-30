@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { supabase } from '@/lib/supabase'
 
 interface DiagnosticResult {
@@ -13,11 +13,11 @@ export default function DiagnosticsPage() {
   const [results, setResults] = useState<DiagnosticResult[]>([])
   const [isRunning, setIsRunning] = useState(false)
 
-  const addResult = (test: string, status: 'success' | 'error', details: string) => {
+  const addResult = useCallback((test: string, status: 'success' | 'error', details: string) => {
     setResults(prev => [...prev, { test, status, details }])
-  }
+  }, [])
 
-  const runDiagnostics = async () => {
+  const runDiagnostics = useCallback(async () => {
     setIsRunning(true)
     setResults([])
 
@@ -71,11 +71,11 @@ export default function DiagnosticsPage() {
     }
 
     setIsRunning(false)
-  }
+  }, [addResult])
 
   useEffect(() => {
     runDiagnostics()
-  }, [])
+  }, [runDiagnostics])
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
@@ -119,7 +119,7 @@ export default function DiagnosticsPage() {
           <ul className="text-sm space-y-2">
             <li>🔴 <strong>If connectivity fails:</strong> Check your environment variables in Vercel</li>
             <li>🔴 <strong>If schema is missing:</strong> Run the database schema in Supabase SQL Editor</li>
-            <li>🔴 <strong>If permissions fail:</strong> Ensure you're the project owner in Supabase</li>
+            <li>🔴 <strong>If permissions fail:</strong> Ensure you&apos;re the project owner in Supabase</li>
             <li>🔴 <strong>If env vars are missing:</strong> Set them in your Vercel project settings</li>
           </ul>
         </div>
